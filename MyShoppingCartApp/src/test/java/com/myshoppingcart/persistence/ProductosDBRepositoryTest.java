@@ -10,7 +10,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.is;
 
-class ProductosDBRepositoryTest {
+public class ProductosDBRepositoryTest {
 
     private IProductoRepository repo;
 
@@ -20,7 +20,7 @@ class ProductosDBRepositoryTest {
     }
 
     @Test
-    void dadosProductos_cuandogetUserProductsUsuarioEnDB_entoncesProductos() throws Exception {
+    public void dadosProductos_cuandogetUserProductsUsuarioEnDB_entoncesProductos() throws Exception {
         List<Producto> productos = repo.getUserProducts(1);
 
         System.out.println(productos);
@@ -30,7 +30,7 @@ class ProductosDBRepositoryTest {
     }
 
     @Test
-    void dadosProductos_cuandogetUserProductsUsuarioNoEnDB_entoncesNull() throws Exception {
+    public void dadosProductos_cuandogetUserProductsUsuarioNoEnDB_entoncesNull() throws Exception {
         List<Producto> productos = repo.getUserProducts(100);
 
         System.out.println(productos);

@@ -7,13 +7,20 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Random;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-class ShoppingCartTest {
+public class ShoppingCartTest {
 
     @Test
-    void cuando_se_crea_el_carrito_tiene_0_artículos() {
+    public void test() {
+        assertTrue(true);
+    }
+
+    @Test
+    public void cuando_se_crea_el_carrito_tiene_0_articulos() {
         // given ... void
 
         // when
@@ -29,7 +36,7 @@ class ShoppingCartTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 5, 10, 1000})
-    void cuando_está_vacío_el_carrito_tiene_0_artículos(int numProducts) {
+    public void cuando_esta_vacio_el_carrito_tiene_0_articulos(int numProducts) {
         // given
         ShoppingCart cart = new ShoppingCart();
 
@@ -53,13 +60,13 @@ class ShoppingCartTest {
     }
 
     @Test
-    void cuando_se_agrega_un_nuevo_producto_la_cantidad_de_artículos_debe_ser_incrementado() {
+    public void cuando_se_agrega_un_nuevo_producto_la_cantidad_de_articulos_debe_ser_incrementado() {
 
     }
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 5, 10, 1000})
-    void cuando_se_agrega_un_nuevo_producto_el_nuevo_saldo_debe_ser_la_suma_de_anteriores_más_el_costo_del_producto(int numProducts) {
+    public void cuando_se_agrega_un_nuevo_producto_el_nuevo_saldo_debe_ser_la_suma_de_anteriores_mas_el_costo_del_producto(int numProducts) {
         // given
         ShoppingCart cart = new ShoppingCart();
         Random rand = new Random();
@@ -83,12 +90,12 @@ class ShoppingCartTest {
     }
 
     @Test
-    void cuando_se_elimina_un_elemento_se_debe_disminuir_el_número_de_elementos() {
+    public void cuando_se_elimina_un_elemento_se_debe_disminuir_el_numero_de_elementos() {
 
     }
 
     @Test
-    void cuando_se_retira_un_producto_que_no_está_en_el_carrito_se_debe_lanzar_ProductNotFoundException() {
+    public void cuando_se_retira_un_producto_que_no_esta_en_el_carrito_se_debe_lanzar_ProductNotFoundException() {
 
     }
 

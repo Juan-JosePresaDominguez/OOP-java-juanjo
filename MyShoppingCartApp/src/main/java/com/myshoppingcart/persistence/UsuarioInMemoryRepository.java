@@ -4,13 +4,9 @@ import com.myshoppingcart.exception.UsuarioNotFoundException;
 import com.myshoppingcart.model.Usuario;
 
 import java.security.SecureRandom;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Logger;
 
 public class UsuarioInMemoryRepository implements IUsuarioRepository {
@@ -19,6 +15,8 @@ public class UsuarioInMemoryRepository implements IUsuarioRepository {
     private static List<Usuario> usuarios;
 
     public UsuarioInMemoryRepository() {
+        usuarios=new ArrayList<>();
+
         usuarios.add(new Usuario(1, "Juana", "Juanason", "juana@e.com", 2, 20, "juanason_1", LocalDate.of(2001, 3, 5), true));
         usuarios.add(new Usuario(2, "Luisa", "Luisason", "luisa@e.com", 4, 74, "luisason_2", LocalDate.of(1996, 4, 6), true));
         usuarios.add(new Usuario(3, "Diana", "Dianason", "diana@e.com", 8, 13, "dianason_3", LocalDate.of(2010, 3, 6), true));

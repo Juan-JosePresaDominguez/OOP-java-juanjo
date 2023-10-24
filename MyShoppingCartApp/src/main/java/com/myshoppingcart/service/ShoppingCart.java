@@ -7,10 +7,10 @@ import java.util.*;
 
 public class ShoppingCart {
 
-    private ArrayList items;
+    private List<Producto> items;
 
     public ShoppingCart() {
-        items = new ArrayList();
+        items = new ArrayList<>();
     }
 
     public double getBalance() {
