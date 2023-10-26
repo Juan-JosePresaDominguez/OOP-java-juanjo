@@ -6,29 +6,33 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public final class PropertyValues {
+    private static PropertyValues instance;
+    public static Properties props = new Properties();
+    private static String propFileName = "config.properties";
 
-    private InputStream inputStream;
-
-    public final Properties getPropValues() throws IOException {
-        Properties prop = null;
+    private PropertyValues() throws IOException {
+        InputStream inputStream = null;
         try {
-            prop = new Properties();
-            String propFileName = "config.properties";
-
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
             if (inputStream != null) {
-                prop.load(inputStream);
+                props.load(inputStream);
             } else {
                 throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
             }
-
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
-            inputStream.close();
+            if (inputStream != null) inputStream.close();
         }
+    }
 
-        return prop;
+    public static PropertyValues getInstance() throws IOException {
+        if (instance == null) instance = new PropertyValues();
+        return instance;
+    }
+
+    public final Properties getPropValues() throws IOException {
+        return props;
     }
 }

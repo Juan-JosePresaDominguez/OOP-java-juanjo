@@ -12,20 +12,17 @@ import java.util.logging.Logger;
 
 public class ProductoDBRepository implements IProductoRepository {
     private static Logger logger = Logger.getLogger("ProductosDBRepository");
+    private static String connUrl;
 
-    private final static String connUrl;
-
-    static {
-        PropertyValues propsVals = new PropertyValues();
-        Properties props = null;
+    public ProductoDBRepository() {
         try {
-            props = propsVals.getPropValues();
+            Properties props = PropertyValues.getInstance().getPropValues();
             connUrl = props.getProperty("db_url");
         } catch (IOException e) {
+            logger.severe("No se puede leer la db_url de la conexión!!");
             throw new RuntimeException(e);
         }
     }
-
 
     @Override
     public List<Producto> getProducts() throws Exception {
